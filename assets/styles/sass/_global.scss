@@ -1,0 +1,329 @@
+html, body {
+  background-color: $body-bg-color;
+  min-height: $body-min-height;
+  font-family: $font-stack;
+
+
+  .admin-bar {
+
+  }
+  a {
+    text-decoration: $link-text-decoration;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+    color: $link-color;
+    font-size: $link-font-size;
+    font-weight: $link-font-weight;
+    line-height: $link-line-height;
+    // margin-bottom: $link-margin-bottom;
+    letter-spacing: .5px;
+
+    @include media-type(laptop) {
+      font-size: $link-font-size-laptop;
+      line-height: $link-line-height-laptop;
+      // margin-bottom: $link-margin-bottom-laptop;
+
+    }
+    @include media-type(tablet) {
+      font-size: $link-font-size-tablet;
+      line-height: $link-line-height-tablet;
+      // margin-bottom: $link-margin-bottom-tablet;
+
+    }
+    @include media-type(phone) {
+      font-size: $link-font-size-phone;
+      line-height: $link-line-height-phone;
+      // margin-bottom: $link-margin-bottom-phone;
+
+    }
+  }
+
+  p {
+    a {
+      display: inline-block;
+    }
+  }
+  header {
+    .nav-logo {
+
+      transition: none!important;
+    }
+
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+
+  body.home {
+    main {
+
+      max-width: none;
+    }
+  }
+  main {
+    max-width: $main-max-width;
+    width: $main-width;
+    min-width: $main-min-width;
+    margin: $main-margin;
+    position: relative;
+    @include media-type(tablet) {
+      padding: $main-padding-tablet;
+    }
+    @include media-type(phone) {
+      padding: $main-padding-phone;
+    }
+
+    div.yellow-banner {
+      background-image: url('../../images/yellow-banner.png');
+      background-color: #eeca37;
+      background-repeat: no-repeat;
+      background-position: center 70%;
+      position: absolute;
+      top: -80px;
+      left: -20%;
+      width: 118px;
+      height: 157px;
+      @include media-type(1400px) {
+        display: none;
+      }
+    }
+  }
+
+  h1 {
+    color: $h1-color;
+    font-size: $h1-font-size;
+    font-weight: $h1-font-weight;
+    line-height: $h1-line-height;
+    margin-bottom: $h1-margin-bottom;
+
+    @include media-type(laptop) {
+      font-size: $h1-font-size-laptop;
+      line-height: $h1-line-height-laptop;
+      margin-bottom: $h1-margin-bottom-laptop;
+
+    }
+    @include media-type(tablet) {
+      font-size: $h1-font-size-tablet;
+      line-height: $h1-line-height-tablet;
+      margin-bottom: $h1-margin-bottom-tablet;
+
+    }
+    @include media-type(phone) {
+      font-size: $h1-font-size-phone;
+      line-height: $h1-line-height-phone;
+      margin-bottom: $h1-margin-bottom-phone;
+
+    }
+  }
+  h2 {
+    color: $h2-color;
+    font-size: $h2-font-size;
+    font-weight: $h2-font-weight;
+    line-height: $h2-line-height;
+    margin-bottom: $h2-margin-bottom;
+    font-weight: $h2-font-weight;
+    @include media-type(phone) {
+
+      font-size: $h2-font-size-phone;
+      font-weight: $h2-font-weight-phone;
+      line-height: $h2-line-height-phone;
+      margin-bottom: $h2-margin-bottom-phone;
+    }
+  }
+  p {
+    color: $p-color;
+    font-size: $p-font-size;
+    line-height: $p-line-height;
+    margin-bottom: $p-margin-bottom;
+  }
+  strong, b {
+    font-weight: $strong-font-weight;
+  }
+
+  ul {
+
+    li {
+      position: relative;
+      &:before{
+        // arrow
+        content: ' ';
+        background-image: $theme-list-bullet;
+        background-repeat: no-repeat;
+        line-height: inherit;
+        position: absolute;
+        top: 0;
+        width: $theme-list-bullet-width;
+        height: $theme-list-bullet-height;
+      }
+      &>blockquote, &>q, &>span {
+
+        margin-left: $theme-list-margin-left;
+      }
+    }
+  }
+
+  .hero {
+    width: $hero-width;
+    height: $hero-height;
+    min-height: $hero-min-height;
+
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    .overlay {
+      background-color: rgba(0,0,0,.5);
+      @include active-overlay;
+    }
+    section {
+      z-index: 1;
+      width: 60%;
+      text-align: center;
+      @include media-type(phone) {
+        width: 75%;
+      }
+      h1 {
+        margin-bottom: 29px;
+      }
+      h2 {
+        color: $white;
+      }
+
+    }
+  }
+
+
+  footer {
+    flex-direction: $footer-display;
+    justify-content: $footer-justify-content;
+    padding: $footer-padding;
+    font-size: 11px;
+    color: #515151;
+    line-height: 25px;
+    flex-wrap: wrap;
+    @include media-type(phone) {
+      flex-direction: $footer-flex-direction-phone;
+      padding: $footer-padding-mobile;
+      text-align: $footer-text-align;
+    }
+  }
+
+}
+
+
+body.animate {
+  header {
+    .nav-logo {
+      margin-top: -100%!important;
+    }
+  }
+  &.start {
+    header {
+
+      .nav-logo {
+        transition-delay: .0s!important;
+        transition: all .5s cubic-bezier(0.42, 0, 0.55, 1.02)!important;
+        margin-top: 0%!important;
+      }
+    }
+  }
+
+  ul > li a {
+    margin-top: -100%!important;
+  }
+
+  &.start {
+
+    ul {
+      & > li {
+
+        a {
+          transition: all .5s cubic-bezier(0.42, 0, 0.55, 1.02);
+          margin-top: 0%!important;
+          @include media-type(tablet) {
+            margin-top: 0%!important;
+          }
+        }
+        &:nth-child(1) {
+          a {
+            transition-delay: .05s;
+          }
+        }
+        &:nth-child(2) {
+          a {
+            transition-delay: .10s;
+          }
+        }
+        &:nth-child(3) {
+          a {
+            transition-delay: .15s;
+          }
+
+        }
+        &:nth-child(4) {
+          a {
+            transition-delay: .2s;
+          }
+
+        }
+        &:nth-child(5) {
+          a {
+            transition-delay: .25s;
+          }
+        }
+
+      }
+    }
+  }
+
+}
+
+
+.location {
+  position: absolute;
+  top: -80px;
+  right: -40%;
+  width: 118px;
+  height: 157px;
+  @include media-type(1723px) {
+
+    right: -35%;
+  }
+  @include media-type(1636px) {
+
+    right: -30%;
+  }
+  @include media-type(1516px) {
+
+    right: -25%;
+  }
+  @include media-type(1425px) {
+
+    right: -20%;
+  }
+  @include media-type(1325px) {
+
+    right: -15%;
+  }
+  @include media-type(1250px) {
+
+    right: -10%;
+  }
+  @include media-type(1140px) {
+
+    right: -5%;
+  }
+  @include media-type(1024px) {
+
+    right: 0%;
+  }
+}

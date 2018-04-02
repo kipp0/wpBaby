@@ -1,0 +1,341 @@
+
+// Styles for topbar navigation
+
+// topbar > nav-wrapper > nav > menu
+nav.topbar {
+  background: $topbar-background;
+  width: $topbar-width;
+  height: $topbar-height;
+  flex-direction: $topbar-flex-direction;
+  justify-content: $topbar-justify-content;
+  position: $topbar-position;
+      z-index: 999;
+
+  @include media-type($topbar-mobile-menu-trigger-width) {
+    height: $topbar-mobile-height;
+    background: $topbar-bg-mobile;
+  }
+
+  a {
+    height: $nav-link-height;
+    width: 100%;
+    color: $nav-link-color;
+    font-size: $nav-link-font-size;
+    &.desc {
+      color: map-get($theme-palette, orange);
+    }
+    &.desc:hover {
+      background-color: transparent;
+      color: map-get($theme-palette, orange);
+    }
+    @include media-type($topbar-mobile-menu-trigger-width) {
+      color: $nav-link-hover-color-mobile;
+      height: auto;
+    }
+  }
+
+
+  .nav-wrapper {
+    display: flex;
+    width: $nav-wrapper-width;
+    justify-content: $nav-wrapper-justify-content;
+    @include media-type($topbar-mobile-menu-trigger-width) {
+      justify-content: $nav-wrapper-justify-content-mobile;
+      width: $nav-wrapper-width-mobile;
+    }
+    .temp-bar {
+      background-color: transparent;
+    }
+    @media screen and (min-width: 1025px) {
+      .temp-bar {
+          z-index: 0!important;
+          display: none;
+      }
+    }
+
+
+    .nav-logo {
+      background-repeat: no-repeat;
+      background-size: contain;
+      display: flex;
+      width: $nav-logo-width;
+      background-position: $nav-logo-position;
+      margin: $nav-logo-margin;
+      z-index: 999;
+      // transition: all .5s cubic-bezier(0.4, 0, 1, 1);
+
+      @include media-type($topbar-mobile-menu-trigger-width) {
+        margin: $nav-logo-margin-mobile; //set to 100% if you want the nav btn to touch the edge
+        display: none;
+      }
+    }
+
+    .nav {
+      display: $nav-display;
+
+      .menu {
+        display: inherit;
+        flex-direction: $menu-flex-direction;
+        list-style: none;
+
+
+        li {
+          display: block;
+          // NOTE: when adding class to change link font colors in the admin menu section.
+          &.text-orange {
+            a {
+              color: map-get($theme-palette, orange);
+              cursor: default;
+              pointer-events: none;
+              display: inline-block;
+              padding: 1rem 1rem;
+              // border-bottom: thin solid map-get($theme-palette, orange);
+              font-size: 12px;
+            }
+            a:hover {
+              background-color: transparent;
+              color: $nav-link-color;
+            }
+          }
+
+          @include media-type($topbar-mobile-menu-trigger-width) {
+            &.text-orange {
+              a {
+                color: $black;
+                padding: 1rem 1.5rem!important;
+              }
+            }
+          }
+          &:before {
+            content: none;
+          }
+
+          @media screen and (min-width: 1025px) {
+            .menu {
+              box-shadow: 0px 2px 2px 0px #e3e3e3;
+            }
+            &:focus-within {
+              .menu {
+                display: flex;
+                left: 0;
+                width: auto;
+                height: auto;
+                // max-width: 231px;
+
+                a {
+                  height: auto;
+                  outline-width: 5px;
+
+                  &:focus, &:hover {
+
+                    background-color: $nav-link-hover-bg;
+                    color: $nav-link-hover-color;
+                    outline: 0;
+
+                  }
+                }
+              }
+            }
+
+            &:hover, .focus-within {
+
+              .menu {
+                display: flex;
+                left: 0;
+                width: auto;
+                height: auto;
+                // min-width: 186px;
+                // max-width: 231px;
+
+                a {
+                  height: auto;
+                  outline-width: 5px;
+
+                  &:focus, &:hover {
+
+                    background-color: $nav-link-hover-bg;
+                    color: $nav-link-hover-color;
+                    outline: 0
+                  }
+                }
+              }
+
+            }
+          }
+          // li mobile
+          @include media-type($topbar-mobile-menu-trigger-width) {
+
+
+            &.focus-within, &.active-item {
+
+
+              .menu {
+                padding-left: 2rem;
+                height: auto;
+                width: auto;
+
+                a {
+
+                  font-size: $p-font-size;
+                }
+              }
+            }
+
+
+          }
+
+          a {
+
+            padding: $nav-link-padding;
+            text-transform: $nav-link-text-transform;
+            font-weight: $nav-link-font-weight;
+            letter-spacing: $nav-link-letter-spacing;
+            justify-content: flex-start; // because it's set to center
+            text-align: left; // align text
+
+            @include media-type(laptop) {
+              padding: $nav-link-padding-laptop;
+            }
+            @include media-type(tablet) {
+              font-size: $h2-font-size-phone;
+            }
+            // @include media-type() {}
+          }
+
+
+          // for menu dropdown
+          .menu {
+            flex-direction: column;
+            background-color: white;
+            position: absolute;
+            top: 90px;
+            min-width: 200px;
+            // display: none;
+            //for AA
+            left:-10000px;
+            top:auto;
+            width:1px;
+            height:1px;
+            overflow:hidden;
+
+            @include media-type(tablet) {
+              background-color: map-get($theme-palette, orange);
+              position: static;
+              a {
+
+                font-size: $h2-font-size;
+              }
+            }
+          }
+
+
+        }
+      }
+
+
+      #nav-btn {
+        background-color: $hamburger-bg-color;
+        display: $hamburger-display-desktop;
+        border-radius: $hamburger-border-radius;
+        z-index: 999;
+
+        @include media-type($topbar-mobile-menu-trigger-width) {
+          display: $hamburger-display-mobile;
+        }
+      }
+
+
+    }
+  }
+
+
+
+// transition: all 800ms cubic-bezier(0.000, 0.995, 0.990, 1.000)
+
+  // still in topbar
+  // styles when button clicked
+  // if bubble effect was chosen
+  @if $mobile-menu-type == bubble {
+    @include media-type($topbar-mobile-menu-trigger-width) {
+
+
+
+      .nav {
+        justify-content: flex-end;
+        align-items: flex-start;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 98px;
+        width: 98px;
+        border-radius: $hamburger-border-radius;
+        background-color: map-get($theme-palette, orange);
+        transition: all 800ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
+
+        .menu:first-child {
+          visibility: hidden;
+          transition-delay: 0ms;
+
+        }
+      }
+
+      &.active { // when button click
+        position: fixed;
+
+        @media screen and (max-width: 850px) and (max-height: 420px) {
+          & .nav > .menu {
+            transition: all 800ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
+            transition-delay: 0;
+            position: absolute;
+            top: 98px;
+            left: 45px;
+            margin-top: 0!important;
+            margin-bottom: 0!important;
+            margin-left: 0!important;
+          }
+        }
+        .nav-logo {
+          display: block;
+        }
+        &.border-radius {
+          .nav {
+            transition: all 800ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
+            border-radius: 0;
+          }
+        }
+        #nav-btn {
+          position: fixed;
+          top: 0;
+          right: 0;
+          height: 98px;
+        }
+        .temp-bar {
+          transition-delay: 800ms;
+          background-color: map-get($theme-palette, orange) !important;
+        }
+
+        .active-item {
+
+        }
+        .nav {
+          width: 100%;
+          height: 100vh;
+          align-items: center;
+          justify-content: flex-start;
+          overflow-y: auto;
+
+          .menu:first-child {
+            margin-top: 20%;
+            margin-bottom: 10%;
+            visibility: visible;
+            transition-delay: 600ms;
+            margin-left: 10%;
+            flex-direction: column;
+            justify-content: flex-start;
+          }
+        }
+      }
+    }
+  }
+
+}

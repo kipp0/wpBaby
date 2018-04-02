@@ -1,0 +1,12 @@
+.btn{
+  appearance: $btn-appearance;
+  outline: $btn-outline;
+
+  border-radius: $btn-border-radius;
+  border-color: $btn-border-color;
+  border-width: $btn-border-width;
+
+  margin: $btn-margin;
+  background: $btn-bg;
+  color: $btn-text-color;
+}
