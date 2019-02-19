@@ -1,3 +1,11 @@
+@each $color-name, $color-hex in $palette {
+  @if type-of($color-hex) == color {
+    .btn.bg-#{$color-name}:hover {
+      background-color: darken($color-hex, 15%)  !important;
+    }
+  }
+}
+
 .btn.bg-blue2blue {
   font-weight: 700;
   letter-spacing: .12em;

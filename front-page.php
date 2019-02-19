@@ -3,6 +3,12 @@
 <section>
   <article class="">
     <div class="">
+
+    <div class="btn-group">
+      <button class="btn bg-blue text-white">test</button>
+      <button class="btn bg-blue text-white">test</button>
+      <button class="btn bg-blue text-white">test</button>
+    </div>
       <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
           <?php the_content(); ?>
