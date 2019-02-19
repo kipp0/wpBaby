@@ -11,14 +11,15 @@ function global_scripts() {
   wp_enqueue_style( 'fancy-styles', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.css', array(), false, 'all' );
 
   // Adding scripts file in the head
-  // wp_enqueue_script('places-async-defer', "https://maps.googleapis.com/maps/api/js?key=AIzaSyAQjub4O2uErltfGF6FZaqpNoljineTTEM&libraries=places&callback=initAutocomplete", array('jquery'), null, false);
+  // wp_enqueue_script('places-async-defer', "", array('jquery'), null, false);
   
   // Adding scripts file in the footer
   wp_enqueue_script( 'global-js', get_template_directory_uri() . '/assets/scripts/dist/scripts.js', array( 'jquery', 'select2-js', 'aos-js'), false, true );
   wp_register_script( 'select2-js', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js');
   wp_enqueue_script( 'aos-js', 'https://unpkg.com/aos@2.3.1/dist/aos.js', array( 'jquery' ), false, true );
   wp_enqueue_script( 'fancy-js', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.js', array( 'jquery' ), false, true );
-  wp_enqueue_script('map-async-defer', "https://maps.googleapis.com/maps/api/js?key=AIzaSyAQjub4O2uErltfGF6FZaqpNoljineTTEM&libraries=places&callback=buildMap", array('global-js'), null, true);
+  // wp_enqueue_script('map-async-defer', "", array('global-js'), null, true);
+  
   // include fontawesome to your project
   // wp_enqueue_script( 'font-awesome', 'https://use.fontawesome.com/releases/v5.0.6/js/all.js', array( 'jquery' ), '', true );
   // Comment reply script for threaded comments
