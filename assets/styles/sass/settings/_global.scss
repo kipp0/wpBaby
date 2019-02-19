@@ -1,0 +1,326 @@
+/*******************************************************
+  Most helpers can be found in the _helper.sass file
+  ******************************************************/
+
+
+//   1. imports
+//   2. node setup
+//   3. lists
+//   4. maps
+//   4. colors
+//   5. Forms
+//   6. footer
+
+
+//imports
+@import url('https://fonts.googleapis.com/css?family=ABeeZee|Lato:300,400,700,900');
+
+
+// VARIABLES
+
+//    1. node setup
+//    -------------------------
+$theme-display: flex !default;
+// defaults to column to offer a dom flow similar to block.
+$theme-flex-direction: column !default;
+
+$lg-container-width: 1540px;
+$container-width: 1200px;
+
+$lg-container-breapoints: (
+  desktop: 1540px,
+  laptop: 1260px
+);
+$container-breapoints: (
+  desktop: 1200px,
+  laptop: 1063px,
+  tablet: 933px,
+  phone: 645px
+);
+
+// column amount
+$number_of_columns: 12;
+
+$gutter-size: 15px;
+//    1. lists
+//    -------------------------
+
+$theme-list-bullet: url('../../../assets/images/mini-logo-icon.png');
+$theme-list-margin-left: 60px;
+$theme-list-bullet-width: 22px;
+$theme-list-bullet-height: 22px;
+
+//    1. Maps
+//    ---------------
+$breakpoints: (
+  desktop: 1700px,
+  laptop: 1440px,
+  tablet: 1024px,
+  phone: 855px
+);
+
+//    1. Colors
+//    ---------------
+$palette: (
+  transparent: transparent,
+  primary: #58595B,
+  secondary: rgb(30, 117, 247),
+  grey: #262626,
+  light-grey: #fafafa,
+  blue: rgb(30, 117, 247),
+  white: #fefefe,
+  dark-grey: #121212,
+  black: #1d1d1d,
+  blue2blue: linear-gradient(to right, rgba(46,71,153,1) 0%, rgba(37,206,248,1) 100%)
+);
+
+$fontSize-helpers: (
+  text-12: 12px,
+  text-13: 13px,
+  text-14: 14px,
+  text-15: 15px,
+  text-16: 16px,
+  text-20: 20px,
+  text-30: 30px,
+  text-80: 80px,
+);
+
+$borderWidth-helpers: (
+  border-1: 1px,
+  border-2: 2px,
+);
+$mb-helpers: (
+  mb-0: 0,
+  mb-1: 1em,
+  mb-2: 2em,
+  mb-3: 3em,
+  mb-4: 4em,
+  mb-5: 5em,
+);
+$mt-helpers: (
+  mt-0: 0,
+  mt-1: 1em,
+  mt-2: 2em,
+  mt-3: 3em,
+  mt-4: 4em,
+  mt-5: 5em,
+);
+$ml-helpers: (
+  ml-0: 0,
+  ml-1: 1em,
+  ml-2: 2em,
+  ml-3: 3em,
+  ml-4: 4em,
+  ml-5: 5em,
+);
+$mr-helpers: (
+  mr-0: 0,
+  mr-1: 1em,
+  mr-2: 2em,
+  mr-3: 3em,
+  mr-4: 4em,
+  mr-5: 5em,
+);
+
+
+$pb-helpers: (
+  pb-0: 0,
+  pb-1: 1em,
+  pb-2: 2em,
+  pb-3: 3em,
+  pb-4: 4em,
+  pb-5: 5em,
+);
+$pt-helpers: (
+  pt-0: 0,
+  pt-1: 1em,
+  pt-2: 2em,
+  pt-3: 3em,
+  pt-4: 4em,
+  pt-5: 5em,
+);
+$pl-helpers: (
+  pl-0: 0,
+  pl-1: 1em,
+  pl-2: 2em,
+  pl-3: 3em,
+  pl-4: 4em,
+  pl-5: 5em,
+);
+$pr-helpers: (
+  pr-0: 0,
+  pr-1: 1em,
+  pr-2: 2em,
+  pr-3: 3em,
+  pr-4: 4em,
+  pr-5: 5em,
+);
+
+
+
+
+//    1. Colors
+//    ---------------
+
+$white: #fefefe;
+$light-grey: #cacaca;
+$med-grey: #454545;
+$dark-grey: #8a8a8a;
+$black: #0a0a0a;
+
+//    1. Fonts
+//    ---------------
+$font-stack: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$light: 200;
+$med: 400;
+$semi-bold: 600;
+$bold: 800;
+
+
+//        P
+//    ---------
+$p-font-size: 18px;
+$p-line-height: 26px;
+$p-font-weight: 300;
+$p-letter-spacing: unset;
+$p-color: inherit;
+$p-color2: inherit;
+$p-margin-bottom: 0px;
+
+$p-font-size-laptop: 18px;
+$p-line-height-laptop: 26px;
+$p-margin-bottom-laptop: 10px;
+
+$p-font-size-tablet: 18px;
+$p-line-height-tablet: 26px;
+$p-margin-bottom-tablet: 10px;
+
+$p-font-size-phone: 18px;
+$p-line-height-phone: 26px;
+$p-margin-bottom-phone: 10px;
+
+$p-font-size-xs: 18px;
+$p-line-height-xs: 26px;
+$p-margin-bottom-xs: 10px;
+
+//        H1
+//    ---------
+$h1-font-size: 75px;
+$h1-line-height: 1.2;
+$h1-font-weight: 700;
+$h1-letter-spacing: unset;
+$h1-color: map-get($palette, grey);
+$h1-color2: map-get($palette, grey);
+$h1-margin-bottom: 0px;
+
+$h1-font-size-laptop: 37px;
+$h1-line-height-laptop: 37px;
+$h1-margin-bottom-laptop: 10px;
+
+$h1-font-size-tablet: 37px;
+$h1-line-height-tablet: 37px;
+$h1-margin-bottom-tablet: 10px;
+
+$h1-font-size-phone: 34px;
+$h1-line-height-phone: 34px;
+$h1-margin-bottom-phone: 10px;
+
+$h1-font-size-xs: 34px;
+$h1-line-height-xs: 34px;
+$h1-margin-bottom-xs: 10px;
+
+
+//        H2
+//    ---------
+$h2-font-size: 40px;
+$h2-line-height: 1.2;
+$h2-font-weight: 400;
+$h2-letter-spacing: unset;
+$h2-color: map-get($palette, grey);
+$h2-color2: map-get($palette, grey);
+$h2-margin-bottom: 0px;
+
+$h2-font-size-laptop: 37px;
+$h2-line-height-laptop: 37px;
+$h2-margin-bottom-laptop: 10px;
+
+$h2-font-size-tablet: 37px;
+$h2-line-height-tablet: 37px;
+$h2-margin-bottom-tablet: 10px;
+
+$h2-font-size-phone: 34px;
+$h2-line-height-phone: 34px;
+$h2-margin-bottom-phone: 10px;
+
+$h2-font-size-xs: 34px;
+$h2-line-height-xs: 34px;
+$h2-margin-bottom-xs: 10px;
+
+
+//        H3
+//    ---------
+$h3-font-size: 28px;
+$h3-line-height: 1.2;
+$h3-font-weight: 400;
+$h3-letter-spacing: unset;
+$h3-color: map-get($palette, grey);
+$h3-color2: map-get($palette, grey);
+$h3-margin-bottom: 0px;
+
+$h3-font-size-laptop: 28px;
+$h3-line-height-laptop: 28px;
+$h3-margin-bottom-laptop: 10px;
+
+$h3-font-size-tablet: 24px;
+$h3-line-height-tablet: 24px;
+$h3-margin-bottom-tablet: 10px;
+
+$h3-font-size-phone: 22px;
+$h3-line-height-phone: 22px;
+$h3-margin-bottom-phone: 10px;
+
+$h3-font-size-xs: 22px;
+$h3-line-height-xs: 22px;
+$h3-margin-bottom-xs: 10px;
+
+
+//      Anchor
+//    ---------
+
+$link-color: $white;
+$link-color-2: map-get($palette, blue);
+
+$link-text-decoration: none;
+
+$link-font-size: $p-font-size;
+$link-line-height: $p-line-height;
+$link-font-weight: $p-font-weight;
+$link-margin-bottom: 24px;
+
+$link-font-size-laptop: $p-font-size;
+$link-line-height-laptop: $p-line-height;
+$link-margin-bottom-laptop: 24px;
+
+$link-font-size-tablet: $p-font-size;
+$link-line-height-tablet: $p-line-height;
+$link-margin-bottom-tablet: 24px;
+
+$link-font-size-phone: $p-font-size;
+$link-line-height-phone: $p-line-height;
+$link-margin-bottom-phone: 24px;
+
+
+//    3. Body
+//    ---------
+$body-bg-color: $white;
+$body-min-height: 100%;
+
+
+//    6. containers
+//    ---------
+$main-max-width: 975px;
+$main-width:100%;
+$main-min-width: 100%;
+$main-margin: 0px;
+$main-padding-phone: 0px;
+$main-padding-tablet: 0px;

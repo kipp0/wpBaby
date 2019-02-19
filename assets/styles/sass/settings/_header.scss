@@ -1,0 +1,26 @@
+
+$show-infobar: false;
+$infobar-position: static;
+$infobar-height: 35px;
+$topbar-top: 0;
+
+@if $show-infobar == true {
+  $topbar-top: $infobar-height;
+}
+
+//    6. Hero
+//    ---------
+$hero-height: 1048px;
+$hero-min-height: 461px;
+$hero-min-tablet: 400px;
+$hero-min-phone: 200px;
+$hero-width: 100%;
+$hero-overlay-width: 100%;
+$hero-overlay-bg-color: 0;
+
+
+//    6. Hero Figure
+//    ---------
+$hero-figure-width: 100%;
+$hero-height: 100%;
+$hero-figure-position: relative;

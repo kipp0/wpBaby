@@ -1,0 +1,115 @@
+h1 {
+  font-size: $h1-font-size;
+  line-height: $h1-line-height;
+  font-weight: $h1-font-weight;
+  letter-spacing: $h1-letter-spacing;
+  margin-bottom: $h1-margin-bottom;
+  color: $h1-color;
+  
+  @include media-type(laptop) {
+    
+    font-size: $h1-font-size-laptop;
+    line-height: $h1-line-height-laptop;
+  }
+  @include media-type(tablet) {
+    
+    font-size: $h1-font-size-tablet;
+    line-height: $h1-line-height-tablet;
+  }
+  @include media-type(phone) {
+    
+    font-size: $h1-font-size-phone;
+    line-height: $h1-line-height-phone;
+  }
+  @include media-type(640px) {
+    
+    font-size: $h1-font-size-xs;
+    line-height: $h1-line-height-xs;
+  }
+}
+h2 {
+  font-size: $h2-font-size;
+  font-weight: $h2-font-weight;
+  letter-spacing: $h2-letter-spacing;
+  margin-bottom: $h2-margin-bottom;
+  color: $h2-color;
+  
+  @include media-type(laptop) {
+    
+    font-size: $h2-font-size-laptop;
+    line-height: $h2-line-height-laptop;
+  }
+  @include media-type(tablet) {
+    
+    font-size: $h2-font-size-tablet;
+    line-height: $h2-line-height-tablet;
+  }
+  @include media-type(phone) {
+    
+    font-size: $h2-font-size-phone;
+    line-height: $h2-line-height-phone;
+  }
+  @include media-type(640px) {
+    
+    font-size: $h2-font-size-xs;
+    line-height: $h2-line-height-xs;
+  }
+}
+h3 {
+  font-size: $h3-font-size;
+  font-weight: $h3-font-weight;
+  letter-spacing: $h3-letter-spacing;
+  margin-bottom: $h3-margin-bottom;
+  color: $h3-color;
+  
+  @include media-type(laptop) {
+    
+    font-size: $h3-font-size-laptop;
+    line-height: $h3-line-height-laptop;
+  }
+  @include media-type(tablet) {
+    
+    font-size: $h3-font-size-tablet;
+    line-height: $h3-line-height-tablet;
+  }
+  @include media-type(phone) {
+    
+    font-size: $h3-font-size-phone;
+    line-height: $h3-line-height-phone;
+  }
+  @include media-type(640px) {
+    
+    font-size: $h3-font-size-xs;
+    line-height: $h3-line-height-xs;
+  }
+}
+p {
+  
+  font-size: $p-font-size;
+  line-height: $p-line-height;
+  font-weight: $p-font-weight;
+  letter-spacing: $p-letter-spacing;
+  margin-bottom: $p-margin-bottom;
+  color: $p-color;
+  
+  @include media-type(laptop) {
+    
+    font-size: $p-font-size-laptop;
+    line-height: $p-line-height-laptop;
+  }
+  @include media-type(tablet) {
+    
+    font-size: $p-font-size-tablet;
+    line-height: $p-line-height-tablet;
+  }
+  @include media-type(phone) {
+    
+    font-size: $p-font-size-phone;
+    line-height: $p-line-height-phone;
+  }
+  @include media-type(640px) {
+    
+    font-size: $p-font-size-xs;
+    line-height: $p-line-height-xs;
+  }
+}

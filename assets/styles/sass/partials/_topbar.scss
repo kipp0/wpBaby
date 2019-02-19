@@ -1,0 +1,567 @@
+
+
+// so sorry about the navigation it's a mess LMAO
+
+// Styles for topbar navigation
+// @media screen and (min-width: 1025px) {
+// nav.topbar .nav-wrapper .nav .menu li .focus-within>.menu, nav.topbar .nav-wrapper .nav .menu li:hover>.menu {
+//     display: -ms-flexbox;
+//     display: flex;
+//     left: 0;
+//     width: auto;
+//     height: auto;
+//     overflow: visible;
+//     box-shadow: 0 2px 2px 0 #e3e3e3;
+// }
+// }
+// topbar > nav-wrapper > nav > menu
+nav.topbar {
+  flex-direction: $topbar-flex-direction;
+  justify-content: $topbar-justify-content;
+  align-items: $topbar-align-items;
+
+  top: $topbar-top;
+
+  background: $topbar-background;
+
+  max-width: $topbar-max-width;
+  width: 100%;
+
+  @include padding-x($topbar-padding-x);
+
+  z-index: 999;
+
+  a {
+    height: $nav-link-height;
+    width: 100%;
+    color: $nav-link-color;
+    font-size: $nav-link-font-size;
+    text-decoration: $nav-link-text-decoration;
+    &.desc {
+      color: map-get($palette, blue);
+    }
+    &.desc:hover {
+      background-color: transparent;
+      color: map-get($palette, blue);
+    }
+    @if $topbar-mobile-menu-trigger-width == all {
+
+      color: $nav-link-color;
+      height: auto;
+
+    } @else {
+      
+      @include media-type($topbar-mobile-menu-trigger-width) {
+        color: $nav-link-color;
+        height: auto;
+      }
+    }
+  }
+
+
+  .nav-wrapper {
+    display: flex;
+    justify-content: $nav-wrapper-justify-content;
+    flex-direction: $nav-wrapper-flex-direction;
+
+    // max-width: $nav-wrapper-max-width;
+    width: 100%;
+    height: $topbar-height;
+    // height: 100%;
+
+    @if $topbar-mobile-menu-trigger-width == all {
+
+      justify-content: $nav-wrapper-justify-content-mobile;
+
+      height: $topbar-mobile-height;
+      width: $nav-wrapper-width-mobile;
+
+    } @else {
+      @include media-type($topbar-mobile-menu-trigger-width) {
+        justify-content: $nav-wrapper-justify-content-mobile;
+  
+        height: $topbar-mobile-height;
+        width: $nav-wrapper-width-mobile;
+      }
+    }
+    .temp-bar {
+      background-color: transparent;
+      display: none;
+    }
+    @media screen and (min-width: 1025px) {
+      .temp-bar {
+          z-index: 0!important;
+          display: none;
+      }
+    }
+    
+    .nav-logo {
+      background-repeat: no-repeat;
+      background-size: contain;
+      display: $nav-logo-display;
+      width: $nav-logo-width;
+      background-position: $nav-logo-bg-position;
+      margin: $nav-logo-margin;
+      z-index: 999;
+      overflow: hidden;
+      // transition: all .5s cubic-bezier(0.4, 0, 1, 1);
+      @if $topbar-mobile-menu-trigger-width == all {
+
+      margin: $nav-logo-margin-mobile; //set to 100% if you want the nav btn to touch the edge
+      display: $nav-logo-display-mobile;
+      width: $nav-logo-width-mobile;
+
+    } @else {
+      
+      @include media-type($topbar-mobile-menu-trigger-width) {
+        margin: $nav-logo-margin-mobile; //set to 100% if you want the nav btn to touch the edge
+        display: $nav-logo-display-mobile;
+        width: $nav-logo-width-mobile;
+  
+      }
+    }
+    
+      &.img-only {
+        
+        @if $topbar-mobile-menu-trigger-width == all {
+
+          display: none !important;
+
+        } @else {
+          
+          @include media-type($topbar-mobile-menu-trigger-width) {
+            display: none !important;
+          }
+        }
+        a {
+          white-space: nowrap;
+          text-indent: -9999px;
+        }
+      }
+      a {
+        justify-content: $nav-logo-justify-center;
+        display: $nav-display;
+        align-items: $nav-logo-link-text-alignment
+      }
+    }
+
+    .nav {
+      display: $nav-display;
+      align-items: $nav-align-items;
+
+      a {
+        // NOTE: to center and grow links
+        align-items: center;
+        display: flex;
+      }
+      .menu-wrapper {
+        display: flex;
+
+        width: 100%;
+
+        transition: height linear .3s ; // had important
+        overflow: -moz-scrollbars-none;
+
+
+        @if $topbar-mobile-menu-trigger-width == all {
+
+          overflow: hidden;
+          overflow-y: auto;
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          height: 0;
+
+          background: $topbar-background;
+        } @else {
+          
+          
+          @include media-type($topbar-mobile-menu-trigger-width) { // this must be revised
+            overflow: hidden;
+            overflow-y: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+  
+            height: 0;
+  
+            background: $topbar-background;
+          }
+        }
+
+
+        & > .btn-container {
+
+          padding: $nav-link-btn-container-padding;
+          display: $nav-link-btn-display;
+          align-items: center;
+
+          a {
+            font-weight: $nav-link-btn-font-weight;
+            font-size: $nav-link-btn-font-size;
+            height: $nav-link-btn-height;
+            @include padding-x($nav-link-btn-padding-x);
+          }
+        }
+
+        .menu {
+          display: inherit;
+
+
+
+          flex-direction: $menu-flex-direction;
+          list-style: none;
+
+
+          @if $topbar-mobile-menu-trigger-width == all {
+
+            @include flex(flex,column);
+
+            background: $topbar-mobile-menu-backround;
+
+            width: 100%;
+            height: 100vh; // so that it can grow
+
+            position: absolute;
+            top: $topbar-mobile-height;
+            left: 0;
+
+
+            overflow: hidden; //yup
+
+
+
+            transition: all .3s ease-in;
+            
+          } @else {
+            
+            @include media-type($topbar-mobile-menu-trigger-width) { // this must be revised
+              @include flex(flex,column);
+  
+              background: $topbar-mobile-menu-backround;
+  
+              width: 100%;
+              height: 100vh; // so that it can grow
+  
+              position: absolute;
+              top: $topbar-mobile-height;
+              left: 0;
+  
+  
+              overflow: hidden; //yup
+  
+  
+  
+              transition: all .3s ease-in;
+  
+  
+            }
+          }
+
+
+
+          li {
+            display: flex;
+            position: relative;
+            &:before {
+              content: none;
+            }
+
+            @media screen and (min-width: 1025px) {
+              .menu {
+                // box-shadow: 0px 2px 2px 0px #e3e3e3;
+              }
+              &:focus-within {
+                .menu {
+                  display: flex;
+                  top: 100%;
+                  left: 0;
+                  width: auto;
+                  height: auto;
+                  // max-width: 231px;
+
+                  a {
+                    height: auto;
+                    outline-width: 5px;
+
+                    &:focus, &:hover {
+
+                      background-color: $nav-link-hover-bg;
+                      color: $nav-link-hover-color;
+                      outline: 0;
+
+                    }
+                  }
+                }
+              }
+
+              &:hover, .focus-within {
+
+                .menu {
+                  display: flex;
+                  left: 0;
+                  width: auto;
+                  height: auto;
+                  top: 100%;
+                  // min-width: 186px;
+                  // max-width: 231px;
+
+                  a {
+                    height: auto;
+                    outline-width: 5px;
+
+                    &:focus, &:hover {
+
+                      background-color: $nav-link-hover-bg;
+                      color: $nav-link-hover-color;
+                      outline: 0
+                    }
+                  }
+                }
+
+              }
+            }
+            // li mobile
+
+            @if $topbar-mobile-menu-trigger-width == all {
+
+              &.focus-within, &.active-item {
+
+
+                .menu {
+                  padding-left: 2rem;
+                  height: auto;
+                  width: auto;
+
+                  a {
+
+                    font-size: $p-font-size;
+                  }
+                }
+              }
+
+            } @else {
+              
+              @include media-type($topbar-mobile-menu-trigger-width) {
+  
+  
+                &.focus-within, &.active-item {
+  
+  
+                  .menu {
+                    padding-left: 2rem;
+                    height: auto;
+                    width: auto;
+  
+                    a {
+  
+                      font-size: $p-font-size;
+                    }
+                  }
+                }
+  
+  
+              }
+            }
+
+
+
+            a {
+
+              padding: $nav-link-padding;
+              text-transform: $nav-link-text-transform;
+              font-weight: $nav-link-font-weight;
+              letter-spacing: $nav-link-letter-spacing;
+              justify-content: $nav-link-justify-content; // because it's set to center
+              // text-align: left; // align text
+              transition: color .3s;
+              &:focus, &:hover {
+
+                background-color: $nav-link-hover-bg;
+                color: $nav-link-hover-color;
+                outline: 0;
+
+              }
+              // NOTE: FIX CAUSE IT USE TO BE 1700
+              @include media-type(laptop) {
+                padding: $nav-link-padding-laptop;
+              }
+              @include media-type(tablet) {
+                font-size: $h2-font-size-phone;
+              }
+              // @include media-type() {}
+            }
+
+
+            // for menu dropdown
+            .menu {
+              flex-direction: column;
+              background-color: $submenu-bg-color;
+              position: absolute;
+              top: 90px;
+              min-width: 200px;
+              // display: none;
+              //for AA
+              left:-10000px;
+              top:auto;
+              width:1px;
+              height:1px;
+              overflow:hidden;
+
+              @include media-type(tablet) {
+                background-color: map-get($palette, blue);
+                position: static;
+                a {
+                  font-size: $h2-font-size;
+                }
+              }
+            }
+
+
+          }
+        }
+      }
+
+
+      .nav-btn-link {
+        height: $nav-btn-height;
+        padding: $nav-btn-padding;
+        max-width: $nav-btn-max-width;
+        width: $nav-btn-width;
+        transform: none;
+        @include media-type(tablet, min) {
+
+          position: $nav-btn-postion;
+          right: $nav-btn-right;
+        }
+      }
+
+      #nav-btn {
+        background-color: $hamburger-bg-color;
+        display: $hamburger-display-desktop;
+        border-radius: $hamburger-border-radius;
+        z-index: 999;
+
+        @if $topbar-mobile-menu-trigger-width == all {
+
+          display: $hamburger-display-mobile;
+
+        } @else {
+          
+          @include media-type($topbar-mobile-menu-trigger-width) {
+            display: $hamburger-display-mobile;
+          }
+        }
+      }
+
+
+    }
+
+
+
+  }
+
+
+
+
+
+  // NOTE: still in topbar
+  // NOTE: styles when button clicked
+  // NOTE: if set to default
+  @if $topbar-mobile-menu-trigger-width == all {
+    
+    @include mobile-menu-type;
+    .menu-wrapper {
+      top: 98px !important;
+    }
+    
+    @include media-type(tablet) {
+      .menu-wrapper2 {
+        display: none;
+      }
+      
+    }
+    @include media-type(1025px, min) {
+
+
+      
+        .nav-wrapper {
+          position: relative;
+        }
+        .menu-wrapper {
+          top: 98px !important;
+          
+            width: 207px !important;
+            left: unset !important;
+            right: 15px;
+            
+            max-height: 0px;
+            transition: max-height .8s ease !important;
+            
+            [id^='menu-item'] {
+              
+              a {
+                justify-content: flex-end !important;
+                padding: 10px 20px !important;
+              }
+            }
+
+          & > ul {
+            padding-top: 0 !important;
+            // max-height: 0;
+            height: auto !important;
+            position: unset !important;
+          }
+
+        }
+        &.active .menu-wrapper {
+          max-height: 2000px !important;
+          height: auto !important;
+          @include padding-y(10px);
+          // & > ul {
+          //   max-height: 2000px;
+          //   height: auto !important
+          // }
+        }
+
+
+      }
+
+    } @else {
+      
+      @include media-type($topbar-mobile-menu-trigger-width) {
+        @include mobile-menu-type;
+      }
+    }
+
+
+    .menu-wrapper2 {
+      height: 100%;
+      &> ul {
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        & >li {
+          height: 100%;
+
+          &.btn {
+            height: auto !important;
+            width: 106px;
+            margin-left: 35px;
+            margin-right: 20px;
+            a {
+              display: block;
+              padding: 0!important;
+            }
+          }
+          a {
+            height: 100%;
+            padding: 20px 15px;
+          }
+        }
+      }
+    }
+
+} // end of mobile trigger

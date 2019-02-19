@@ -1,0 +1,347 @@
+// NOTE: FONT AND BG HELPERS
+@each $color-name, $color-hex in $palette {
+
+  @if $color-name == blue2blue {
+
+    .bg-#{$color-name} {
+      background: $color-hex !important;
+    }
+  } @else {
+
+    .bg-#{$color-name} {
+      background-color: $color-hex !important;
+    }
+    .text-#{$color-name} {
+      color: $color-hex !important;
+    }
+    .border-#{$color-name} {
+      border-color: $color-hex !important;
+    }
+  }
+}
+
+
+// NOTE: hide helper
+@each $key, $value in $breakpoints {
+
+  @include media-type($key) {
+    .hide-#{$key} {
+      display: none !important;
+    }
+  }
+}
+
+@each $key, $value in $breakpoints {
+
+  @if $key == tablet {
+    
+    @include media-type(1025px, min) {
+      .hide-#{$key}-up {
+        display: none !important;
+      }
+    }
+  } @else {
+
+    @include media-type($key, min) {
+      .hide-#{$key}-up {
+        display: none !important;
+      }
+    }
+  }
+}
+
+
+@each $key, $value in $breakpoints {
+
+
+  @if $key == phone {
+    
+    
+    .#{$key}-only {
+      display: none !important;
+    }
+    @include media-type($key) {
+      .#{$key}-only {
+        display: inherit !important;
+      }
+    }
+  }
+  @else if $key == tablet {
+    
+    .#{$key}-only {
+      display: none !important;
+    }
+    @include media-type(map-get($breakpoints, phone), map-get($breakpoints, $key)) {
+      .#{$key}-only {
+        display: inherit !important;
+      }
+    }
+  }
+
+
+}
+
+@for $idx from 0 to length($breakpoints) {
+  
+
+  // @debug $breakpoints[$idx];
+  @if expr {
+    
+  }
+  // @include media-type($key, min) {
+  //   .hide-#{$key}-up {
+  //     display: none !important;
+  //   }
+  // }
+}
+
+// NOTE: MARGIN BOTTOM HELPERS
+@each $key, $value in $mb-helpers {
+
+  .#{$key} {
+    margin-bottom: $value;
+  }
+}
+// NOTE: MARGIN TOP HELPERS
+@each $key, $value in $mt-helpers {
+
+  .#{$key} {
+    margin-top: $value;
+  }
+}
+// NOTE: MARGIN RIGHT HELPERS
+@each $key, $value in $mr-helpers {
+
+  .#{$key} {
+    margin-right: $value;
+  }
+}
+
+// NOTE: MARGIN LEFT HELPERS
+@each $key, $value in $ml-helpers {
+
+  .#{$key} {
+    margin-left: $value;
+  }
+}
+
+// NOTE: PADDING BOTTOM HELPERS
+@each $key, $value in $pb-helpers {
+
+  .#{$key} {
+    padding-bottom: $value;
+  }
+}
+// NOTE: PADDING TOP HELPERS
+@each $key, $value in $pt-helpers {
+
+  .#{$key} {
+    padding-top: $value;
+  }
+}
+// NOTE: PADDING RIGHT HELPERS
+@each $key, $value in $pr-helpers {
+
+  .#{$key} {
+    padding-right: $value;
+  }
+}
+
+// NOTE: PADDING LEFT HELPERS
+@each $key, $value in $pl-helpers {
+
+  .#{$key} {
+    padding-left: $value;
+  }
+}
+
+
+// NOTE: FONT SIZE HELPERS
+@each $key, $value in $fontSize-helpers {
+
+  .#{$key} {
+    font-size: $value!important;
+    line-height: 1.5;
+  }
+}
+
+
+// NOTE: BORDER SIZE HELPERS
+@each $key, $value in $borderWidth-helpers {
+
+  .#{$key} {
+    border-width: $value!important;
+  }
+}
+
+
+.shortcode {
+
+  
+  h2 {
+    margin-bottom: 35px;
+    font-weight: bold;
+  }
+
+  p {
+    line-height: 25px;
+  }
+  
+  &.dark {
+    h2,h3,span,p {
+      color: map-get($map: $palette, $key: grey);
+      text-shadow: 0px 2px 4px rgba(#000, .25);
+    }
+  }
+  
+  &.light {
+    h2,h3,span,p {
+      color: $white;
+      text-shadow: 0px 2px 4px rgba(#000, .5);
+    }
+  }
+}
+
+.circle {
+  border-radius: 50%;
+}
+// NOTE:  AA HELPERS
+.scr-reader-text{
+   // clip: rect(1px, 1px, 1px, 1px);
+   top:-1000%;
+   height: 1px;
+   width: 1px;
+   overflow: hidden;
+   position: absolute !important;
+}
+.text-center {
+  text-align: center;
+}
+
+.blue2blue-overlay {
+  opacity: 0;
+  @include overlay();
+  background: map-get($palette, corner-blue2blue);
+  transition: opacity .3s;
+  &:hover {
+    opacity: 1;
+  }
+}
+.scr-reader-text:focus     {
+    left: 6px;
+    top: 7px;
+    height: auto;
+    width: auto;
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 23px 14px;
+    background: $white;
+    color: $black;
+    z-index: 999999;
+    line-height: normal;
+    text-decoration: none;
+    box-shadow: 0 0 2px 2px rgba(0,0,0,.6);
+  }
+
+.bg-video {
+  @include bg-video;
+}
+
+.alignright {
+  float: right;
+  margin: 0.5em 1em 0.5em 0;
+}
+.alignleft {
+  float: left;
+  margin: 0.5em 1em 0.5em 0;
+}
+
+.youtube {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+  }
+}
+
+.add-pointer {
+  cursor: pointer;
+}
+
+.sticky {
+  position: fixed!important;
+  top: 0!important;
+}
+.position-relative {
+  position: relative;
+}
+.jc-center {
+  @include flex(jc_center);
+}
+.jc-between {
+  @include flex(jc_space_between);
+}
+.jc-end {
+  @include flex(jc_end);
+}
+.ai-center {
+  @include flex(ai_center);
+}
+.full-width {
+  width: 100%;
+}
+.mx-auto {
+  margin-left: auto!important;
+  margin-right: auto!important;
+}
+.p0 {
+  padding: 0 !important;
+}
+.m0 {
+  margin: 0;
+}
+.bar {
+  position: relative;
+
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 10px;
+    width: 65%;
+    // width: 300px;
+    background: map-get($palette, blue);
+  }
+  &.bar-center::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.logo2 {
+  @include media-type(tablet) {
+    height: 200px;
+  }
+}
+.btn.big {
+  padding: 1.85rem 3rem;
+}
+.bold {
+  font-weight: bold !important;
+}
+.sbold {
+  font-weight: 500 !important;
+}

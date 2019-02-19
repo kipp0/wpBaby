@@ -1,0 +1,63 @@
+
+
+div.notification.success {
+  background-color: #2ecc71;
+}
+
+// toast
+main div.notification {
+    visibility: hidden;
+    width: 4%;
+    max-width: 1000px;
+    // max-width: 1025px;
+    max-height: 93px;
+
+    @include media-type(phone) {
+      max-width: 100%;
+      max-height: 110px;
+      white-space: pre-wrap;
+    }
+    padding-left: 75px;
+    margin: auto;
+    position: fixed;
+    z-index: 1;
+    left: 0;right:0;
+    top: 80px;
+    font-size: 17px;
+    white-space: nowrap;
+    overflow: hidden;
+    box-shadow: none;
+
+    p, h4 {
+      padding-left: 6px;
+    }
+}
+main div.notification.show {
+  visibility: visible;
+  overflow: hidden;
+  animation: fadein 0.5s, expand 0.5s 0.5s,stay 5s 1s, shrink 0.5s 6s, fadeout 0.5s 6.5s;
+}
+
+@keyframes fadein {
+    from {top: 0; opacity: 0;}
+    to {top: 90px; opacity: 1;}
+}
+
+@keyframes expand {
+  from {top: 90px;width: 4%}
+  to {top: 90px;width: 100%}
+}
+@keyframes stay {
+    from {top: 90px;width: 100%}
+    to {top: 90px;width: 100%}
+}
+
+@keyframes shrink {
+    from {top: 90px;width: 100%;}
+    to {top: 90px;width: 4%;}
+}
+
+@keyframes fadeout {
+    from {top: 90px; opacity: 1;}
+    to {top: 0px; opacity: 0;}
+}

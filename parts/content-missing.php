@@ -7,7 +7,7 @@
 <section class="post-not-found">
 
 		<header class="article-header">
-			<h1><?php _e( 'Oops, Post Not Found!', 'jointswp' ); ?></h1>
+			<h1><?php _e( 'Oops, Post Not Found!', 'wpBabywp' ); ?></h1>
 		</header>
 
 		<section class="entry-content">

@@ -1,0 +1,23 @@
+.btn {
+  position: relative;
+  border: $btn-border;
+  text-decoration: none;
+  text-align: $btn-text-align;
+  letter-spacing: $btn-letter-spacing;
+  padding: $btn-padding;
+  -webkit-transition: .2s ease-out;
+  transition: .2s ease-out;
+  cursor: pointer;
+  border-radius: $btn-border-radius;
+  outline: $btn-outline;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: $btn-display;
+  font-size: $btn-font-size;
+  line-height: $btn-line-height;
+  text-transform: $btn-text-transform;
+  font-weight: $btn-font-weight;
+}
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}

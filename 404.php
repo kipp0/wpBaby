@@ -7,14 +7,15 @@
 
 get_header(); ?>
 <section>
-  <article class="">
-
-    <header class="article-header">
-      <h1 class="text-grey"><?php _e( 'Epic 404 - Article Not Found', 'jointswp' ); ?></h1>
-    </header> <!-- end article header -->
-    <footer>
-      <p><?php _e( 'The article you were looking for was not found, but maybe try looking again!', 'jointswp' ); ?></p>
-    </footer>
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <h1 class="text-grey text-center"><?php _e( 'Epic 404 - Article Not Found', 'wpBabywp' ); ?></h1>
+          <p class='text-center'><?php _e( 'The article you were looking for was not found, but maybe try looking again!', 'wpBabywp' ); ?></p>
+        </div>
+      </div>
+    </div>
   </article>
 </section>
 

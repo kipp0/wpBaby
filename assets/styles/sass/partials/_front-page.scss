@@ -1,0 +1,36 @@
+.home {
+
+  #hero {
+    margin-bottom: 10px;
+    .text {
+      max-width: 360px;
+    }
+    .col.s6 {
+      flex: 0 0 100%;
+    }
+    @include media-type(870px) {
+      .col.s10 {
+
+        max-width: 95%;
+      }
+    }
+  }
+
+
+  main {
+
+    section {
+      article {
+
+        padding: 10px 30px;
+      }
+    }
+
+
+
+
+
+
+
+  }
+}

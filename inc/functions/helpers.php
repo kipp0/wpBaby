@@ -21,15 +21,49 @@
  *
  * @return bool
  */
-function gp_get_img_url( $image_id, $size = 'large' ) {
-    $src = wp_get_attachment_image_src( $image_id, $size, false );
-    $url = isset( $src[ 0 ] ) ? $src[ 0 ] : false;
-    return $url;
+ function add_hero_class() {
+   // code...
+
+   add_filter( 'body_class','my_body_class' );
+   function my_body_class($classes) {
+
+     $classes[] = 'has-hero';
+
+     return $classes;
+   }
+ }
+
+/**
+ * Function to beatify varible output with or without html special chars.
+ * @param $var
+ * @param $htmlspecialchars
+ */
+function beautify_var( $var, $htmlspecialchars = false ) {
+
+    $body = print_r( $var, true );
+
+    if ( $htmlspecialchars ) {
+        $body = htmlspecialchars( $body );
+    }
+
+    $ret = '<pre>' . $body . '</pre>';
+    return $ret;
 }
 
+ function gp_add_body_class( $cls ){
+     $current = gp_get_global( 'body_classes', array() );
+     $current = $current && is_array( $current ) ? $current : array();
+     $current[] = $cls;
+     gp_set_global( 'body_classes', $current );
+ }
 
+ function gp_get_body_classes(){
+     $current = gp_get_global( 'body_classes', array() );
+     $classes = gp_parse_css_classes( $current );
+     return $classes ? $classes : '';
+ }
 
-
+ // body_class( gp_get_body_classes() );
 /**
  * Function to check if page is child of a particular page.
  *

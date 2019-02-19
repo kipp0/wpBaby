@@ -18,11 +18,11 @@
 	</header> <!-- end article header -->
 
 	<section class="entry-content" itemprop="articleBody">
-		<a href="<?php the_permalink() ?>" aria-label="<?= $date[1] ?> <?= $date[0] ?> 20<?= $date[2] ?>"><?php the_post_thumbnail('full'); ?></a>
+		<a href="<?php the_permalink() ?>" aria-label="<?= $date[1] ?> <?= $date[0] ?> 20<?= $date[2] ?>"><?php //the_post_thumbnail('full'); ?></a>
     <?php global $post;
      ?>
     <h2 aria-label="Post Title"><?php the_title(); ?></h2>
-		<?php the_excerpt('<button class="btn text-white bg-orange">' . __( 'Read more...', 'wpBaby' ) . '</button>'); ?>
+		<?php the_excerpt('<button class="btn text-white bg-blue">' . __( 'Read more...', 'wpBaby' ) . '</button>'); ?>
 	</section> <!-- end article section -->
 
 	<!-- footer class="article-footer">

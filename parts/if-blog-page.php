@@ -13,7 +13,7 @@
 <!-- <?php// if ( !is_front_page() ) : ?>
   <style media="screen">
     .hero {
-      background-image: url('<?= //$featured_image ?>');
+      background-image: url('<?php // echo $featured_image ?>');
     }
   </style>
 <?php// endif; ?> -->

@@ -1,0 +1,154 @@
+//    3. menus
+//    ---------
+// global Navigation
+// nav node
+// set to normal if you want to make a custom nav
+// normal - nav is standard no features
+// sticky - nav is stuck at the top
+// bubble - nav starts in the corner and bubbles out to fill the screen in mobile
+// $menu-type: right_reverse;
+// if you want a logo with image only set class of nav li to .nav-logo.img-only
+
+$mobile-menu-type: default;
+$topbar-mobile-menu-trigger-width: tablet;
+
+$topbar-position: fixed;
+
+$topbar-background: #425244;
+$topbar-background-2: $topbar-background;
+$topbar-mobile-menu-backround: $topbar-background;
+$topbar-bg-mobile: $light-grey;
+
+
+$topbar-height: 90px;
+$topbar-mobile-height: 98px;
+$topbar-max-width: 100%;
+
+$topbar-padding-x: 0px;
+
+$topbar-flex-direction: column;
+$topbar-justify-content: flex-start;
+$topbar-align-items: center;
+
+
+// nav wrapper
+$nav-wrapper-max-width: 1540px;
+$nav-wrapper-justify-content: space-between;
+$nav-wrapper-justify-content-mobile: space-between;
+$nav-wrapper-width-mobile: 100%;
+$nav-wrapper-flex-direction: row;
+$nav-wrapper-height: 90px;
+$nav-wrapper-postion: relative;
+
+// nav
+$nav-display: flex;
+$nav-align-items: center;
+
+//nav menu
+$menu-flex-direction: row;
+
+//nav menu dropdown
+$submenu-bg-color: rgba($white, .7);
+
+//nav menu links
+$nav-link-color: #b2bbbd;
+
+$nav-logo-link-text-alignment: center;
+
+$nav-link-height: $topbar-height;
+$nav-link-padding: 1em;
+$nav-link-padding-laptop: 1rem .5rem;
+
+$nav-link-hover-color: map-get($palette, secondary);
+$nav-link-hover-bg: none;
+$nav-link-hover-color-mobile: map-get($palette, secondary);
+$nav-link-hover-bg-mobile: none;
+
+$nav-link-font-size: 16px; //firaSans Medium
+$nav-link-line-height: 17.65px;
+$nav-link-letter-spacing: unset;
+$nav-link-font-weight: 400;
+$nav-link-text-transform: capitalize;
+$nav-link-text-decoration: none;
+$nav-link-justify-content: center;
+
+// navbar link btn
+$nav-link-btn-display: flex;
+$nav-link-btn-container-padding: 0 50px;
+$nav-link-btn-height: auto;
+$nav-link-btn-padding-x: 42px;
+$nav-link-btn-font-weight: bold;
+$nav-link-btn-font-size: $nav-link-font-size;
+
+// navbar logo
+$nav-logo-width: 150px;
+$nav-logo-width-mobile: 150px;
+$nav-logo-bg-position: center;
+// $nav-logo-display: flex;
+$nav-logo-display: flex;
+$nav-logo-display-mobile: flex;
+$nav-logo-margin: 0 0 0 0em;
+$nav-logo-margin-mobile: 0 0 0 0px;
+$nav-logo-justify-center: center!important;
+// mobile navbar
+// TODO: addd mobile navbar settings
+
+
+// navbar hamburger menu
+$hamburger-padding-x                       : 25px !default;
+$hamburger-padding-y                       : 25px !default;
+$hamburger-layer-width                     : 30px !default;
+$hamburger-layer-height                    : 2.5px !default;
+$hamburger-layer-spacing                   : 8px !default;
+$hamburger-layer-color                     : map-get($palette, blue) !default;
+$hamburger-layer-border-radius             : 0px !default;
+$hamburger-hover-opacity                   : 1 !default;
+$hamburger-hover-transition-duration       : 0.15s !default;
+$hamburger-hover-transition-timing-function: ease-in !default;
+$hamburger-display-desktop: block;
+$hamburger-display-mobile: block;
+
+
+$hamburger-bg-color: map-get($palette, transparent);
+$hamburger-border-radius: 0;
+// To use CSS filters as the hover effect instead of opacity,
+// set $hamburger-hover-use-filter as true and
+// change the value of $hamburger-hover-filter accordingly.
+$hamburger-hover-use-filter: false !default;
+$hamburger-hover-filter    : opacity(50%) !default;
+
+// List of all the types of menu button animations
+// Types (Remove or comment out what you don’t need)
+$hamburger-types: (
+  // 3dx,
+  // 3dx-r,
+  // 3dy,
+  // 3dy-r,
+  // 3dxy,
+  // 3dxy-r,
+  // arrow,
+  // arrow-r,
+  // arrowalt,
+  // arrowalt-r,
+  // arrowturn,
+  // arrowturn-r,
+  // boring,
+  // collapse,
+  // collapse-r,
+  // elastic,
+  // elastic-r,
+  // emphatic,
+  // emphatic-r,
+  // minus,
+  // slider,
+  // slider-r,
+  // spring,
+  // spring-r,
+  // stand,
+  // stand-r,
+  // spin,
+  // spin-r,
+  squeeze,
+  // vortex,
+  // vortex-r
+) !default;

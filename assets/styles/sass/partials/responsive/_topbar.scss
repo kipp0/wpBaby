@@ -1,0 +1,77 @@
+nav.topbar[role='navigation'] {
+  
+  @include media-type(tablet) {
+    @include padding-x(25px);
+  }
+  
+  .nav-wrapper {
+    @include media-type(1565px) {
+      
+      @include padding-x(25px,0);
+    }
+
+    .nav {
+
+      .nav-btn-link {
+        @include media-type(620px) {
+          display: none;
+        }
+      } // NOTE: nav-btn
+
+      .menu-wrapper {
+        .menu {
+          li[id^='menu-item'].menu-item   {
+
+            @include media-type(1340px) {
+              &.nav-logo.img-only {
+
+                order: -1;
+              }
+            }
+
+            &.book-app {
+
+              @include media-type(620px, min) {
+                display: none;
+              }
+            } // NOTE: book-app
+
+            &.menu-item-has-children {
+              @include media-type(tablet) {
+
+                @include flex(column,ai_center);
+              }
+              .menu {
+                max-height: 0px;
+                transition: max-height .3s ease;
+                @include media-type(tablet) {
+
+                  width: 100%;
+                }
+
+                &.open {
+                  height: auto;
+                  max-height: 9999px;
+                   transition: max-height 0.3s ease-in;
+                }
+              }
+
+            } // NOTE: menu-item-has-children
+            a {
+              @include media-type(1390px) {
+
+                @include padding-x(1rem);
+              }
+              @include media-type(1340px) {
+
+                @include padding-x(.5rem);
+                font-size: 12px;
+              }
+            } // NOTE: a tag
+
+          } // NOTE: li
+        }
+      }
+    }
+  }
+}

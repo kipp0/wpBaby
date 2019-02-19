@@ -1,0 +1,43 @@
+
+header {
+  position: $topbar-position;
+  @if $topbar-position == fixed {
+
+    z-index: 2;
+  }
+  .infobar {
+    @if $show-infobar == false {
+      display: none;
+    }
+
+    width: 100%;
+    position: $infobar-position;
+
+
+    ul {
+
+      display: flex;
+      justify-content: flex-end;
+
+      width: 96%;
+      height: 35px;
+
+      margin: auto;
+    }
+    li:first-child {
+      margin-right: 35px;
+    }
+
+    li {
+      display: flex;
+
+      a {
+        display: flex;
+        align-self: center;
+        align-items: center;
+          color: $white;
+      }
+    }
+  }
+
+}

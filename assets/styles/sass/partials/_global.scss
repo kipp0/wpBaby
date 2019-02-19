@@ -1,0 +1,162 @@
+// pushes content below the admin bar
+body.has-hero {
+  main {
+
+    padding-top: 0;
+  }
+}
+main {
+  @if $topbar-position = fixed or $topbar-position = absolute {
+    padding-top: $topbar-height;
+
+    @include media-type(tablet) {
+      padding-top: $topbar-mobile-height;
+
+    }
+  }
+}
+
+.text-middle-grey {
+  color: #949494;
+}
+
+section {
+  min-height: 400px;
+}
+.card {
+  max-width: 320px;
+  .chead {
+
+  }
+}
+
+.gallery {
+  .item {
+    @include margin-x(-10px);
+    @include margin-y(5px);
+    @include bg-cover();
+    height: 300px;
+    
+    a {
+      position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100%;
+    }
+  }
+}
+
+
+#hero {
+  height: 450px;
+
+  @include bg-cover();
+  @include flex(flex, row, jc_center);
+  align-items: center;
+  text-align: center;
+
+  .row {
+    width: 100%;
+  }
+  h1 {
+    font-size: 64.9px;
+    @include media-type(phone) {
+
+      font-size: 54.9px;
+    }
+    @include media-type(640px) {
+
+      font-size: 27.5px;
+    }
+  }
+  h2 {
+    font-size: 43.9px;
+  }
+  .col.s10 {
+    padding: 0;
+    @include media-type(420px) {
+
+      max-width: 100%;
+      width: 100%;
+      margin: 0 -15px!important;
+    }
+  }
+  .col.s6 {
+    max-width: 675px;
+  }
+}
+
+
+
+
+.big-quotes {
+  font-size: 238.76px;
+  line-height: 1;
+  font-family: 'ABeeZee';
+}
+.med-quotes {
+  font-size: 124px;
+  line-height: 1;
+  font-family: 'ABeeZee';
+}
+.quotes {
+  font-size: 52.49px;
+  line-height: 1;
+  font-family: 'ABeeZee';
+}
+.animate {
+  transform: translateY(35%);
+  opacity: 0;
+  transition: transform .8s ease-out, opacity .8s ease-in;
+  .bar {
+    &::after {
+      width: 0;
+
+      transition: width .9s ease-out;
+      transition-delay: .4s;
+    }
+  }
+  &.load {
+    opacity: 1;
+    transform: translateY(0%);
+    .bar {
+      &::after {
+        width: 75%;
+      }
+    }
+
+  }
+}
+.aos-init {
+  transform: translateY(35%);
+  opacity: 0;
+  transition: transform .8s ease-out, opacity .8s ease-in;
+  .bar {
+    &::after {
+      width: 0;
+
+      transition: width .9s ease-out;
+      transition-delay: .4s;
+    }
+  }
+  &.aos-animate {
+    opacity: 1;
+    transform: translateY(0%);
+    .bar {
+      &::after {
+        width: 75%;
+      }
+    }
+
+  }
+}
+
+
+
+// NOTE: adminbar fix changes to position absolute for some reason
+@include media-type(phone) {
+  html #wpadminbar {
+    position: fixed;
+  }
+}

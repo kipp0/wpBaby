@@ -1,0 +1,124 @@
+// NOTE: FONT AND BG HELPERS
+.grid {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container-fluid {
+  width: 100%;
+  padding-right: $gutter-size;
+  padding-left: $gutter-size;
+  margin-right: auto;
+  margin-left: auto;
+}
+.lg-container {
+  width: 100%;
+  max-width: map-get($map: $lg-container-breapoints, $key: desktop);
+  padding-right: $gutter-size;
+  padding-left: $gutter-size;
+  margin-right: auto;
+  margin-left: auto;
+
+  // NOTE: adds responsive max width
+  @each $key, $value in $lg-container-breapoints {
+
+
+    @if $key != desktop {
+      @include media-type($key) {
+         max-width: $value;
+       }
+    }
+  }
+}
+.container {
+  width: 100%;
+  max-width: map-get($map: $container-breapoints, $key: desktop);
+  padding-right: $gutter-size;
+  padding-left: $gutter-size;
+  margin-right: auto;
+  margin-left: auto;
+
+  // NOTE: adds responsive max width
+  @each $key, $value in $container-breapoints {
+
+    @if $key != desktop {
+      @include media-type($key) {
+         max-width: $value;
+       }
+    }
+  }
+}
+.row {
+  @include flex(flex,wrap);
+  margin-right: -$gutter-size;
+  margin-left: -$gutter-size;
+}
+.flex {
+  @include flex(flex,wrap);
+}
+.col {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  min-height: 1px;
+  flex-basis: 0;
+  flex-grow: 1;
+  padding-right: $gutter-size;
+  padding-left: $gutter-size;
+  
+  @include media-type(phone) {
+    flex-basis: unset;
+    flex-grow: unset;
+    
+    padding-top: $gutter-size;
+    padding-bottom: $gutter-size;
+  }
+}
+
+@for $i from 1 through $number_of_columns {
+  $width: percentage($i/$number_of_columns);
+  @include media-type(phone, max) {
+
+    .xs#{$i} {
+      flex: 0 0 $width;
+      max-width: $width;
+    }
+  }
+  @include media-type(phone, min) {
+
+    .s#{$i} {
+      flex: 0 0 $width !important;
+      max-width: $width !important;
+    }
+  }
+  @include media-type(tablet, min) {
+
+    .m#{$i} {
+      flex: 0 0 $width !important;
+      max-width: $width !important;
+    }
+  }
+  @include media-type(desktop, min) {
+
+    .l#{$i} {
+      flex: 0 0 $width !important;
+      max-width: $width !important;
+    }
+  }
+}
+// @each $name, $value in $breakpoints {
+//
+//   @if $name == phone {
+//
+//     .xs-#{$color-name} {
+//       background-color: $color-hex !important;
+//     }
+//   }
+//   .text-#{$color-name} {
+//     color: $color-hex !important;
+//   }
+//   .border-#{$color-name} {
+//     border-color: $color-hex !important;
+//   }
+// }

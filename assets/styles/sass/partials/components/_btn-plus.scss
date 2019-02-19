@@ -1,0 +1,37 @@
+.btn.bg-blue2blue {
+  font-weight: 700;
+  letter-spacing: .12em;
+  transition: transform .3s, box-shadow .3s;
+
+  &::before {
+
+  }
+
+  &:hover {
+    &::after {
+      opacity: 1;
+    }
+    transform: translateY(10%);
+    box-shadow: 4px 5px 16px rgba(0, 0, 0, 0.4);
+  }
+  &::after {
+
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background: linear-gradient(to right, map-get($palette,secondary), map-get($palette, primary));
+    transition: all linear 0.3s;
+    z-index: 1;
+  }
+
+  span {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 0!important;
+  }
+}
+    // [submit class:btn class:bg-blue2blue class:text-white "Submit"]

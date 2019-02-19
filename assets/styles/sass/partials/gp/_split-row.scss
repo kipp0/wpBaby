@@ -1,0 +1,474 @@
+
+$entry-content-1650ish: 1650px;
+$entry-content-1440ish: 1440px;
+$entry-content-1366ish: 1366px;
+$entry-content-1024ish: 1024px;
+// maybe not need these:
+$entry-content-768ish: 768px;
+$entry-content-500ish: 500px;
+$entry-content-430ish: 430px;
+
+
+@mixin split-row-container-lg(){
+    position: relative;
+    width: 100%;
+    // width: 90%;
+    // max-width: 1365px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    @media screen and (max-width: $entry-content-1024ish){
+        padding-left: 0;
+        padding-right: 0;
+        width: 88%;
+    }
+}
+@mixin posa(){
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+// most of these have min heights but under special circumstances, we may remove them..
+//.sr-min-height(){
+//    min-height: 750px;
+//    padding: 90px 0;
+//}
+
+$srWhitePaddingLarge: 180px;
+$srWhitePaddingLarge-1650: 160px;
+$srWhitePaddingLarge-1440: 140px;
+$srWhitePaddingLarge-1366: 110px;
+$srWhitePaddingLarge-1024: 95px;
+$srWhitePaddingLarge-768: 80px;
+$srWhitePaddingLarge-500: 56px;
+
+$srWhitePaddingHalf: 10px;
+$srWhitePaddingHalf-1650: 10px;
+$srWhitePaddingHalf-1440: 10px;
+$srWhitePaddingHalf-1366: 10px;
+$srWhitePaddingHalf-1024: 48px;
+$srWhitePaddingHalf-768: 40px;
+$srWhitePaddingHalf-500: 28px;
+
+// ************************************************
+//           Coco js crap plugin
+// ************************************************
+
+.interior-page{
+    .cocoen.cocoen.cocoen{
+        position: relative;
+        padding: 0;
+        margin: 0;
+        //padding-bottom: 92%;
+        //> div{
+        //    position: absolute;
+        //    top: 0;
+        //    left: 0;
+        //    width: 100%;
+        //    height: 100%;
+        //}
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        height: 0;
+        &.js-init{
+            opacity: 1;
+            visibility: visible;
+            height: auto;
+        }
+        img {
+            //position: absolute;
+            //left: 0;
+            //right: 0;
+            //width: 100%;
+            display: block;
+            height: 100%;
+        }
+        .cocoen-drag {
+            width: 8px;
+            margin-left: -8px;
+            display: none;
+            &.my-cocoen-drag{
+                display: block;
+            }
+            &::before {
+                display: none;
+            }
+            .cc-arrows{
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                // .translate(-50%, -50%);
+                @include flex(flex,nowrap,ai_center,jc_space_between);
+                width: 38px;
+                height: 38px;
+                background: white;
+                border-radius: 99px;
+                .fa{
+                    display: block;
+                    font-size: 20px;
+                    color: map-get($palette, green);
+                }
+                .cc-left{
+                    padding-left: 17%;
+                }
+                .cc-right{
+                    padding-right: 17%;
+                }
+                .cc-left, .cc-right{
+
+                }
+            }
+        }
+    }
+
+}
+.split-row{
+    width: 100%;
+    @include flex(flex);
+    // ******* VARIATIONS ********
+    &.bg-black{
+        background: black;
+        // going to only use min height on black sections which should be used to break up white space......
+        // and not used 2 in a row... otherwise spacing will be kind of off..
+        .sr-container{
+            min-height: 740px;
+            padding-top: 100px;
+            padding-bottom: 100px;
+            @media screen and (max-width: $entry-content-1650ish){
+                min-height: 660px;
+            }
+            @media screen and (max-width: $entry-content-1440ish){
+                min-height: 600px;
+            }
+            @media screen and (max-width: $entry-content-1366ish){
+                min-height: 530px;
+            }
+            // maybe mirroring .gp-banner
+            @media screen and (max-width: $entry-content-1024ish){
+                min-height: 0;
+                padding-top: 95px;
+                padding-bottom: 95px;
+            }
+            @media screen and (max-width: $entry-content-768ish){
+                padding-top: 80px;
+                padding-bottom: 80px;
+            }
+            @media screen and (max-width: $entry-content-500ish){
+                padding-top: 56px;
+                padding-bottom: 56px;
+            }
+        }
+        & + .split-row.bg-white{ // double up the padding
+            .sr-container{
+                padding-top: $srWhitePaddingLarge;
+            }
+        }
+        @media screen and (max-width: $entry-content-1650ish){
+            & + .split-row.bg-white{ // double up the padding
+                .sr-container{
+                    padding-top: $srWhitePaddingLarge-1650;
+                }
+            }
+        }
+        @media screen and (max-width: $entry-content-1440ish){
+            & + .split-row.bg-white{ // double up the padding
+                .sr-container{
+                    padding-top: $srWhitePaddingLarge-1440;
+                }
+            }
+        }
+        @media screen and (max-width: $entry-content-1366ish){
+            & + .split-row.bg-white{ // double up the padding
+                .sr-container{
+                    padding-top: $srWhitePaddingLarge-1366;
+                }
+            }
+        }
+        // maybe mirroring .gp-banner
+        @media screen and (max-width: $entry-content-1024ish){
+            & + .split-row.bg-white{ // double up the padding
+                .sr-container{
+                    padding-top: $srWhitePaddingLarge-1024;
+                }
+            }
+        }
+        @media screen and (max-width: $entry-content-768ish){
+            & + .split-row.bg-white{ // double up the padding
+                .sr-container{
+                    padding-top: $srWhitePaddingLarge-768;
+                }
+            }
+        }
+        @media screen and (max-width: $entry-content-500ish){
+            & + .split-row.bg-white{ // double up the padding
+                .sr-container{
+                    padding-top: $srWhitePaddingLarge-500;
+                }
+            }
+        }
+    }
+    // expecting to have a bottom banner which has white space.. so the last split row if its on a white background
+    // should always have no space at the bottom. gonna have to do some tricky things if we don't know for sure there is a bottom banner in place
+    &.bg-white{
+        background: white;
+        .sr-container{
+            padding-top: $srWhitePaddingHalf;
+            padding-bottom: $srWhitePaddingHalf;
+        }
+        &:first-child .sr-container{
+            // padding-top: $srWhitePaddingLarge; // double up the padding
+        }
+        &:last-child .sr-container{
+            padding-bottom: 0; // relies on bottom banner underneath, which has its own white space
+        }
+        @media screen and (max-width: $entry-content-1650ish){
+            .sr-container{
+                padding-top: $srWhitePaddingHalf-1650;
+                padding-bottom: $srWhitePaddingHalf-1650;
+            }
+            &:last-child .sr-container{
+                padding-bottom: 0; // relies on bottom banner underneath, which has its own white space
+            }
+        }
+        @media screen and (max-width: $entry-content-1440ish){
+            .sr-container{
+                padding-top: $srWhitePaddingHalf-1440;
+                padding-bottom: $srWhitePaddingHalf-1440;
+            }
+            &:last-child .sr-container{
+                padding-bottom: 0; // relies on bottom banner underneath, which has its own white space
+            }
+        }
+        @media screen and (max-width: $entry-content-1366ish){
+            .sr-container{
+                padding-top: $srWhitePaddingHalf-1366;
+                padding-bottom: $srWhitePaddingHalf-1366;
+            }
+            &:first-child .sr-container{
+                // padding-top: $srWhitePaddingLarge-1366; // double up the padding
+            }
+            &:last-child .sr-container{
+                padding-bottom: 0; // relies on bottom banner underneath, which has its own white space
+            }
+        }
+        @media screen and (max-width: $entry-content-1024ish){
+            .sr-container{
+                padding-top: $srWhitePaddingHalf-1024;
+                padding-bottom: $srWhitePaddingHalf-1024;
+            }
+            &:last-child .sr-container{
+                padding-bottom: 0; // relies on bottom banner underneath, which has its own white space
+            }
+        }
+        @media screen and (max-width: $entry-content-768ish){
+            .sr-container{
+                padding-top: $srWhitePaddingHalf-768;
+                padding-bottom: $srWhitePaddingHalf-768;
+            }
+            &:last-child .sr-container{
+                padding-bottom: 0; // relies on bottom banner underneath, which has its own white space
+            }
+        }
+        @media screen and (max-width: $entry-content-500ish){
+            .sr-container{
+                padding-top: $srWhitePaddingHalf-500;
+                padding-bottom: $srWhitePaddingHalf-500;
+
+            &:last-child .sr-container{
+                padding-bottom: 0; // relies on bottom banner underneath, which has its own white space
+            }
+        }
+        & + .split-row.bg-white{
+
+        }
+    }
+    &.image-on-left{
+        .sr-container .sr-flex{
+            .sr-image{
+                order: 1;
+            }
+            .sr-text{
+                order: 2;
+            }
+        }
+    }
+    &.image-on-right{
+        .sr-container{
+            .sr-flex{
+                .sr-image{
+                }
+                .sr-text{
+                  @include flex(jc_start);
+                  // @include flex(jc_end);
+                }
+            }
+        }
+    }
+    // IMG - left
+    &.image-no-cover.image-on-left{
+        .sr-container .sr-flex{
+            .sr-image{
+                // padding-left: 2%;
+                padding-right: 5%;
+                @media screen and (max-width: $entry-content-1024ish){
+                    padding-right: 4%;
+                }
+            }
+        }
+    }
+    // IMG - right
+    &.image-no-cover.image-on-right{
+        .sr-container .sr-flex{
+            .sr-image{
+                padding-left: 5%;
+                padding-right: 2%;
+                @media screen and (max-width: $entry-content-1024ish){
+                    padding-left: 4%;
+                }
+            }
+        }
+    }
+    // Background - Left
+    &.image-cover.image-on-left{
+        .sr-container .sr-flex{
+            .sr-image{
+                padding-left: 0;
+                padding-right: 7%;
+            }
+        }
+    }
+    // Background - Right
+    &.image-cover.image-on-right{
+        .sr-container .sr-flex{
+            .sr-image{
+                padding-left: 7%;
+                padding-right: 0;
+            }
+        }
+    }
+    // Background Image
+    &.image-cover{
+        .sr-container .sr-flex .sr-image{
+            .sr-image-inner{
+                border: 3px solid white;
+                // .box-shadow-1(); replace
+                border-radius: 5px;
+                overflow: hidden;
+                // single background image
+                .bg-img-wrap{
+                    position: relative;
+                    padding-bottom: 88%;
+                    .background-image{
+                        @include posa();
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                    }
+                }
+            }
+        }
+        .sr-container .sr-flex .sr-image .sr-image-inner{
+        }
+    }
+    // Img Tag (probably transparent image)
+    &.image-no-cover{
+        .sr-container .sr-flex .sr-image .sr-image-inner{
+            .img-wrap{
+                img{
+
+                }
+            }
+        }
+    }
+    // ******* BASE STYLES , also defaults for .image-on-left********
+    .sr-container{
+        @include split-row-container-lg();
+        @include flex(flex,column,jc_center);
+        @media screen and (max-width: $entry-content-1024ish){
+            padding-left: 0;
+            padding-right: 0;
+            width: 88%;
+        }
+        .sr-flex{
+            @include flex(flex,wrap,jc_start,ai_center);
+
+            @media screen and (max-width: 768px){
+                @include flex(jc_center);
+            }
+            .sr-text{
+                @include flex(flex,nowrap,jc_start);
+
+                width: 50%;
+
+                @media screen and (max-width: 768px){
+                    width: 100%;
+                    &.sr-text{
+                        display: block;
+                        order: 2;
+                    }
+                }
+                .sr-text-inner{
+                    // width: 564px;
+                    max-width: 100%;
+                    > *:last-child{
+                        margin-bottom: 0;
+                    }
+                    // @media screen and (max-width: $entry-content-1650ish){
+                    //     width: 530px;
+                    // }
+                    // @media screen and (max-width: $entry-content-1440ish){
+                    //     width: 490px;
+                    // }
+                    // @media screen and (max-width: $entry-content-1366ish){
+                    //     width: 460px;
+                    // }
+                    @media screen and (max-width: $entry-content-1024ish){
+                        width: 400px;
+                    }
+                    @media screen and (max-width: 768px){
+                        width: 525px;
+                        max-width: 100%;
+                        margin-left: auto;
+                        margin-right: auto;
+                        text-align: center
+                    }
+                }
+            }
+            .sr-image{
+                width: 50%;
+                @media screen and (max-width: 768px){
+                    width: 100%;
+                    max-width: 475px;
+                    padding-bottom: 50px;
+
+                    &.sr-image{
+                        order: 1;
+                    }
+                }
+                .sr-image-inner{
+                    // can be multiple .image-wraps..
+                    .bg-img-wrap{
+                        position: relative;
+                        .background-image{
+
+                        }
+                    }
+                    .img-wrap{
+                        img{
+                            display: block;
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+}

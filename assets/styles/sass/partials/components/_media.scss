@@ -1,0 +1,6 @@
+.media {
+  @include flex(flex, ai_start);
+  .mbody {
+    flex: 1;
+  }
+}

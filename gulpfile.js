@@ -11,7 +11,7 @@ var gulp = require('gulp'),
 
 
 // Set local URL if using Browser-Sync
-const LOCAL_URL = 'localhost:8888/geekpower/ONPHEC/wordpress',
+const LOCAL_URL = 'localhost:8888/',
 
       // Settings for build of assets and jshint
       SOURCE = {
@@ -21,7 +21,7 @@ const LOCAL_URL = 'localhost:8888/geekpower/ONPHEC/wordpress',
         ],
         styles: 'assets/styles/sass/**/*.+(scss|sass)',
         images: 'assets/images/**/*',
-        php: '**/*.php'
+        php: ['**/*.php', '!inc/**/*.php']
       },
 
       ASSETS = {
@@ -99,10 +99,15 @@ gulp.task('styles', function() {
 });
 
 // Optimize images, move into assets directory
-gulp.task('images', function() {
-	return gulp.src(SOURCE.images)
-		.pipe(plugin.imagemin())
-		.pipe(gulp.dest(ASSETS.images))
+// gulp.task('images', function() {
+// 	return gulp.src(SOURCE.images)
+// 		.pipe(plugin.imagemin())
+// 		.pipe(gulp.dest(ASSETS.images))
+// });
+
+// watch all php files except
+gulp.task('php', function() {
+  return gulp.src(SOURCE.php)
 });
 
 
@@ -113,17 +118,14 @@ gulp.task('build', function() {
 // Browser-Sync watch files and inject changes
 gulp.task('browsersync', function() {
 
-    // Watch these files
-    var files = [
-    	SOURCE.php,
-    ];
 
-    browserSync.init(files, {
+    browserSync.init({
 	    proxy: LOCAL_URL,
     });
 
     gulp.watch(SOURCE.styles, gulp.parallel('styles'));
     gulp.watch(SOURCE.scripts, gulp.parallel('scripts')).on('change', browserSync.reload);
-    gulp.watch(SOURCE.images, gulp.parallel('images'));
+    gulp.watch(SOURCE.php, gulp.parallel('php')).on('change', browserSync.reload);
+    // gulp.watch(SOURCE.images, gulp.parallel('images'));
 
 });

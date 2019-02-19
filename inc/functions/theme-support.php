@@ -1,9 +1,6 @@
 <?php
 
-function custom_excerpt_length( $length ) {
-	return 15;
-}
-add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
 // Adding mime types
 function wpBaby_mime_types($mimes) {
 	# code...

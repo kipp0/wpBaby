@@ -1,12 +1,68 @@
+// NOTE: SETTINGS
 
-@import "setting-mixins";
-@import "settings";
-@import "mixins";
-@import "reset";
-@import "helpers";
-@import "nav-core";
-@import "global";
-@import "form";
-@import "blog";
-@import "../../../node_modules/hamburgers/_sass/hamburgers/_base";
-@import "../../../node_modules/hamburgers/_sass/hamburgers/hamburgers";
+// 1: page settings
+@import "settings/global";
+@import "settings/topbar";
+@import "settings/header";
+@import "settings/footer";
+// @import "settings/page";
+@import "settings/front-page";
+
+// 2: components settings
+@import "settings/components/card";
+@import "settings/components/tooltip";
+@import "settings/components/alert";
+@import "settings/components/badge";
+@import "settings/components/button";
+@import "settings/components/button-group";
+@import "settings/components/form";
+
+
+// // NOTE: SETUP
+@import "partials/setup";
+@import "partials/mixins";
+@import "partials/helpers";
+@import "partials/responsive/column";
+@import "partials/responsive/font";
+@import "partials/responsive/hide";
+@import "partials/responsive/topbar";
+// @import "partials/gp/split-row";
+
+// // NOTE: PARTIALS
+
+// // 1: Page Styles
+@import "partials/global";
+@import "partials/topbar-animation-type";
+@import "partials/topbar";
+@import "partials/header";
+@import "partials/footer";
+@import "partials/front-page";
+// @import "partials/page";
+// @import "partials/single";
+// @import "partials/single-featured";
+// @import "partials/single-testimonials";
+// @import "partials/single-team";
+// @import "partials/single-potential";
+// // @import "partials/blog";
+// @import "partials/404";
+
+// // 2: components
+@import "partials/components/card";
+@import "partials/components/tooltip";
+@import "partials/components/alert";
+@import "partials/components/badge";
+@import "partials/components/button";
+@import "partials/components/btn-plus";
+@import "partials/components/button-group";
+@import "partials/components/media";
+@import "partials/components/modal";
+@import "partials/components/form";
+
+
+
+
+// // NOTE: INCLUDES
+
+// // 1: hamburger menu includes
+// // @import "~hamburgers/_sass/hamburgers/_base";
+// // @import "~hamburgers/_sass/hamburgers/hamburgers";

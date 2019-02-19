@@ -1,0 +1,96 @@
+.page {
+
+  #hero {
+    max-height: 725px;
+    position: relative;
+    p {
+      color: $white;
+    }
+    .overlay {
+      @include overlay($black, .7, 10%);
+    }
+    .text {
+      width: 490px;
+    }
+  }
+
+  .media {
+    i {
+      color: #303088;
+    }
+    .mbody {
+      font-size: 16px;
+      line-height: 22px;
+      letter-spacing: .04em;
+      font-family: 'montserrat';
+    }
+  }
+    .bg-grey {
+
+      p {
+        color: $white;
+      }
+    }
+  .section-2 {
+    min-height: 820px;
+
+    .content {
+      max-width: 555px;
+    }
+  }
+  .section-3 {
+    position: relative;
+    @include bg-cover;
+    min-height: 555px;
+
+    .overlay {
+
+      @include overlay;
+    }
+
+    p {
+      color: inherit;
+    }
+
+    .col.s6 {
+
+      padding: 50px 15px;
+      @include media-type(tablet) {
+
+        max-width: 555px;
+      }
+    }
+  }
+  .section-4 {
+    min-height: 760px;
+    .col.s6 {
+      @include bg-cover;
+    }
+    .content {
+      max-width: 555px;
+    }
+  }
+  .section-5 {
+
+    .col.s6 {
+      @include bg-cover;
+      background-color: #e9e9e9;
+    }
+    .content {
+      max-width: 555px;
+    }
+    min-height: 760px;
+  }
+  .section-ac {
+    min-height: 555px;
+
+    .content {
+      max-width: 1250px;
+      padding: 50px 0;
+      @include media-type(tablet) {
+
+        max-width: 555px;
+      }
+    }
+  }
+}

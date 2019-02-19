@@ -1,0 +1,32 @@
+
+// NOTE: FORM SETTINGS
+
+// 1. BACKGROUND
+$input-bg: #fff !default;
+$input-bg-clip: padding-box !default;
+
+// 2. FONT
+$input-text-color: map-get($map: $palette, $key: grey) !default;
+$input-text-align: left;
+$input-letter-spacing: unset;
+$input-font-size: 16px;
+$input-line-height: 1;
+$input-font-weight: 400;
+
+// 3. BORDER
+$input-border: none;
+$input-border-radius: 0 !default;
+$input-border-color: map-get($map: $palette, $key: grey) !default;
+$input-border-width: 0 !default;
+
+
+// 3. SETTINGS
+$input-appearance: none;
+$input-outline: s; //pass in a bad value to set value to default
+$input-margin: 1rem 2rem !default;
+$input-padding: $btn-padding;
+$input-display: block;
+$input-width: 100%;
+$input-height: calc(2.25rem + 2px);
+$input-transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+$input-break-margin-bottom-phone: 15px;

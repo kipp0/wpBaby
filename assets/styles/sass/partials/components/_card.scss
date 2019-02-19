@@ -1,0 +1,59 @@
+.card {
+
+  position: relative;
+  @include flex(flex,column);
+
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: $card-background-clip;
+  border-radius: $card-border-radius;
+  overflow: hidden;
+
+  &.side {
+    @include flex(row);
+    
+    @include media-type(phone) {
+      
+      @include flex(column);
+    }
+  }
+  .cheader {
+    padding: $card-header-padding;
+    border-bottom: $card-header-border-bottom;
+    margin-bottom: $card-header-margin-bottom;
+  }
+  .cimg {
+    width: $card-image-width;
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  .cbody {
+    flex: 1 1 auto;
+    padding: $card-body-padding;
+  }
+  .cfooter {
+    padding: $card-footer-padding;
+    border-top: $card-footer-border-top;
+  }
+}
+
+.row > .card, .flex > .card {
+  @include flex(flex,column);
+    flex: 1 0 0%;
+    @include margin-x($card-grouping-margin-left, $card-grouping-margin-right);
+    // margin-right: $card-grouping-margin-right;
+    // margin-left: $card-grouping-margin-left;
+    margin-bottom: $card-grouping-margin-bottom;
+
+    @include media-type(phone) {
+      flex: 0 0 100%;
+      max-width: 100%;
+      @include margin-x(0);
+      @include margin-y($card-grouping-margin-left,$card-grouping-margin-right);
+      
+
+    }
+}

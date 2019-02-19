@@ -8,23 +8,27 @@
 *                            o  o
 *                          --------
 *
-*              Best NOT to add functions in this file
+*             Best NOT to add functions in this file
 ******************************************************************/
 
+// CPT setup
+require_once(get_template_directory(). '/inc/customPostType/example/example.php');
+
+// customizer setup
+require_once(get_template_directory(). '/inc/customizer/customizer.php');
+
+// classes setup
+require_once(get_template_directory(). '/inc/classes/classes.php');
+
+// functions setup
+require_once(get_template_directory(). '/inc/functions/functions.php');
+
+// includes all custom shortcodes.
+require_once(get_template_directory(). '/inc/shortcodes/shortcodes.php');
 
 
 
-// custom functions to make your life easier don't be shy take a look
-require_once(get_template_directory(). '/inc/functions/helpers.php');
 
-// Adds support for multiple languages
-require_once(get_template_directory().'/inc/functions/translation/translation.php');
-// WP Head and other cleanup functions
-require_once(get_template_directory().'/inc/functions/cleanup.php');
-// Register scripts and stylesheets
-require_once(get_template_directory().'/inc/functions/enqueue-scripts.php');
-// Register custom menus and menu walkers
-// require_once(get_template_directory().'/inc/functions/menu.php');
 
 
 // Related post function - no need to rely on plugins
